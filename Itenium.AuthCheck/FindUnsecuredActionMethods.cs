@@ -6,6 +6,12 @@ namespace Itenium.AuthCheck;
 
 public static class FindUnsecuredActionMethods
 {
+    /// <summary>
+    /// Get all action methods that are not explicitly secured
+    /// </summary>
+    /// <returns>
+    /// Array of ControllerName.MethodName
+    /// </returns>
     public static IEnumerable<string> GetUnsecuredMethodNames(params Type[] controllers)
     {
         foreach (Type controllerType in controllers)

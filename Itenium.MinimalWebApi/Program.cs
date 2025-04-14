@@ -14,16 +14,16 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapGet("/weatherforecast", () => "Stormy")
+app.MapGet("/unsecured", () => "Stormy")
     .WithName("GetWeatherForecast")
     .WithOpenApi();
 
-app.MapGet("/secured-weatherforecast", () => "Sunny")
+app.MapGet("/secured", () => "Sunny")
     .WithName("GetSecuredWeatherForecast")
     .RequireAuthorization()
     .WithOpenApi();
 
-app.MapGet("/anonymous-weatherforecast", () => "Cloudy")
+app.MapGet("/anonymous", () => "Cloudy")
     .WithName("GetSecuredWeatherForecast")
     .AllowAnonymous()
     .WithOpenApi();
@@ -32,5 +32,6 @@ app.Run();
 
 
 #if DEBUG
-public partial class Program { }  // Enable test access
+// Enable test access
+public partial class Program { }
 #endif

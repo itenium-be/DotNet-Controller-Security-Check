@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Itenium.AuthCheck\Itenium.AuthCheck.csproj" />
+    <ProjectReference Include="..\Itenium.MinimalWebApi\Itenium.MinimalWebApi.csproj" />
     <ProjectReference Include="..\Itenium.WebApi\Itenium.WebApi.csproj" />
   </ItemGroup>
 
