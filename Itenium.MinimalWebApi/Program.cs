@@ -14,19 +14,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapGet("/unsecured", () => "Stormy")
-    .WithName("GetWeatherForecast")
-    .WithOpenApi();
-
-app.MapGet("/secured", () => "Sunny")
-    .WithName("GetSecuredWeatherForecast")
-    .RequireAuthorization()
-    .WithOpenApi();
-
-app.MapGet("/anonymous", () => "Cloudy")
-    .WithName("GetSecuredWeatherForecast")
-    .AllowAnonymous()
-    .WithOpenApi();
+app.MapGet("/unsecured", () => "Stormy");
+app.MapGet("/secured", () => "Sunny").RequireAuthorization();
+app.MapGet("/anonymous", () => "Cloudy").AllowAnonymous();
 
 app.Run();
 
