@@ -6,9 +6,6 @@ namespace Itenium.Tests;
 
 public class MinimalWebApiTests
 {
-    /// <summary>
-    /// This test fails because we have an unsecured endpoint
-    /// </summary>
     [Fact]
     public void CheckMinimalWebApiEndpoints()
     {
@@ -18,10 +15,9 @@ public class MinimalWebApiTests
         });
 
         string[] unsecured = FindUnsecuredMinimalWebApiEndpoints.GetEndpoints(factory.Services).ToArray();
-        if (unsecured.Any())
-        {
-            Assert.Fail($"Add .RequireAuthorization() or .AllowAnonymous() to the following endpoints: \n{string.Join(", ", unsecured)}");
-        }
+
+        Assert.Single(unsecured);
+        Assert.Equal("HTTP: GET /unsecured", unsecured[0]);
     }
 
     [Fact]
