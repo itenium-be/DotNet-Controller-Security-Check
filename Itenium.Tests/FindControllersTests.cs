@@ -10,7 +10,7 @@ public class FindControllersTests
     {
         Type[] controllers = FindControllers.FindByName(typeof(ActionsController).Assembly);
         string[] controllerNames = controllers.Select(x => x.Name).ToArray();
-        string[] expected = ["ActionsController", "AnonymousController", "BareController", "NotImplementedController", "ZeroSecurityController"];
+        string[] expected = ["ActionsController", "AnonymousController", "AuthorizeNoPolicyController", "BareController", "ControllerLevelNoPolicyController", "ControllerLevelWithPolicyController", "NotImplementedController", "ZeroSecurityController"];
         Assert.Equal(expected, controllerNames);
     }
 
@@ -19,7 +19,7 @@ public class FindControllersTests
     {
         Type[] controllers = FindControllers.FindByBaseClass(typeof(ActionsController).Assembly);
         string[] controllerNames = controllers.Select(x => x.Name).ToArray();
-        string[] expected = ["ActionsController", "AnonymousController", "NotImplementedController", "ZeroSecurityController"];
+        string[] expected = ["ActionsController", "AnonymousController", "AuthorizeNoPolicyController", "ControllerLevelNoPolicyController", "ControllerLevelWithPolicyController", "NotImplementedController", "ZeroSecurityController"];
         Assert.Equal(expected, controllerNames);
     }
 
@@ -28,7 +28,7 @@ public class FindControllersTests
     {
         Type[] controllers = FindControllers.FindByAttribute(typeof(ActionsController).Assembly);
         string[] controllerNames = controllers.Select(x => x.Name).ToArray();
-        string[] expected = ["ActionsController", "AnonymousController", "BareController", "NotImplementedController", "ZeroSecurityController"];
+        string[] expected = ["ActionsController", "AnonymousController", "AuthorizeNoPolicyController", "BareController", "ControllerLevelNoPolicyController", "ControllerLevelWithPolicyController", "NotImplementedController", "ZeroSecurityController"];
         Assert.Equal(expected, controllerNames);
     }
 }
