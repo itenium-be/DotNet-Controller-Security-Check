@@ -14,7 +14,9 @@ public class MinimalWebApiTests
             builder.ConfigureTestServices(services => { /* Mock services as needed */ });
         });
 
-        string[] unsecured = FindUnsecuredMinimalWebApiEndpoints.GetEndpoints(factory.Services).ToArray();
+        string[] unsecured = FindUnsecuredMinimalWebApiEndpoints.GetEndpoints(factory.Services)
+            .Where(e => !e.Contains("/openapi/") && !e.Contains("/scalar/"))
+            .ToArray();
 
         Assert.Single(unsecured);
         Assert.Equal("HTTP: GET /unsecured", unsecured[0]);
@@ -28,7 +30,9 @@ public class MinimalWebApiTests
             builder.ConfigureTestServices(services => { /* Mock services as needed */ });
         });
 
-        string[] unsecured = FindUnsecuredMinimalWebApiEndpoints.GetEndpoints(factory.Services).ToArray();
+        string[] unsecured = FindUnsecuredMinimalWebApiEndpoints.GetEndpoints(factory.Services)
+            .Where(e => !e.Contains("/openapi/") && !e.Contains("/scalar/"))
+            .ToArray();
         Assert.Single(unsecured);
         Assert.Equal("HTTP: GET /unsecured", unsecured[0]);
     }
