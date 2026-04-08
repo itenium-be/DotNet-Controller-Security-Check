@@ -23,3 +23,6 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+// Keep internal to avoid ambiguity with MinimalWebApi.Program in tests
+internal partial class Program { }

@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".gitignore" />
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="Itenium.AuthCheck/Itenium.AuthCheck.csproj" />
+  <Project Path="Itenium.MinimalWebApi/Itenium.MinimalWebApi.csproj" />
+  <Project Path="Itenium.Tests/Itenium.Tests.csproj" />
+  <Project Path="Itenium.WebApi/Itenium.WebApi.csproj" />
+</Solution>
